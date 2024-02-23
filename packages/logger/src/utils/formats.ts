@@ -1,6 +1,12 @@
-import { format } from "winston";
+import { format } from 'winston';
 
-const TIMESTAMP = "YYYY-MM-DD HH:mm:ss";
+type LogInfo = {
+  level: string;
+  message: string;
+  [key: string | symbol]: string;
+};
+
+const TIMESTAMP = 'YYYY-MM-DD HH:mm:ss';
 
 const defaultFormats = [
   format.colorize(),
@@ -9,7 +15,7 @@ const defaultFormats = [
   }),
 ];
 
-const messageFormat = (info) =>
+const messageFormat = (info: LogInfo) =>
   `${info.timestamp} [${info.level}]: ${info.message}`;
 
 const defaultConsoleFormats = [...defaultFormats, format.printf(messageFormat)];

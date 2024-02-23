@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "turbo build",
     "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\"",
     "lint": "eslint --ext .js,.ts .",
     "lint:fix": "npm run lint --fix",
@@ -22,7 +23,8 @@
     "ts-node": "^10.9.2",
     "turbo": "^1.12.4",
     "typescript": "^5.3.3",
-    "vite": "^5.1.4"
+    "vite": "^5.1.4",
+    "vite-plugin-dts": "^3.7.3"
   },
   "workspaces": [
     "packages/*"

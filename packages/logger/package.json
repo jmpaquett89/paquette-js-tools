@@ -4,12 +4,14 @@
   "private": true,
   "scripts": {
     "dev": "echo 'Add dev script here'",
-    "build": "echo 'Add build script here'",
+    "build": "vite build",
     "test": "echo 'Add test script here'",
     "lint": "echo 'Add lint script here'"
   },
   "devDependencies": {
-    "ts-node": "^10.9.2"
+    "ts-node": "^10.9.2",
+    "typescript": "^5.2.2",
+    "vite": "^5.1.4"
   },
   "dependencies": {
     "winston": "^3.11.0",
