@@ -4,6 +4,9 @@
     "build": {
       "outputs": [".dist/**"]
     },
+    "format": {},
+    "lint": {},
+    "lint:fix": {},
     "type-check": {}
   }
 }

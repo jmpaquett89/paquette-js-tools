@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "build": "turbo build",
-    "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\"",
-    "lint": "eslint --ext .js,.ts .",
-    "lint:fix": "npm run lint --fix",
+    "format": "turbo format",
+    "lint": "turbo lint",
+    "lint:fix": "turbo lint:fix",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
