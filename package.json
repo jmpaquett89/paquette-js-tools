@@ -4,12 +4,23 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\"",
+    "lint": "eslint --ext .js,.ts .",
+    "lint:fix": "npm run lint --fix",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "turbo": "^1.12.4"
+    "@types/node": "^20.11.20",
+    "@typescript-eslint/eslint-plugin": "^7.0.2",
+    "@typescript-eslint/parser": "^7.0.2",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "prettier": "^3.2.5",
+    "ts-node": "^10.9.2",
+    "turbo": "^1.12.4",
+    "typescript": "^5.3.3"
   }
 }
