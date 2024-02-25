@@ -1,4 +1,5 @@
 import { format } from 'winston';
+import { getColor } from './color';
 
 type LogInfo = {
   level: string;
@@ -9,14 +10,15 @@ type LogInfo = {
 const TIMESTAMP = 'YYYY-MM-DD HH:mm:ss';
 
 const defaultFormats = [
-  format.colorize(),
   format.timestamp({
     format: TIMESTAMP,
   }),
 ];
 
-const messageFormat = (info: LogInfo) =>
-  `${info.timestamp} [${info.level}]: ${info.message}`;
+const messageFormat = (info: LogInfo) => {
+  const color = getColor(info.level);
+  return `${info.timestamp} [${color(info.level)}]: ${info.message}`;
+};
 
 const defaultConsoleFormats = [...defaultFormats, format.printf(messageFormat)];
 

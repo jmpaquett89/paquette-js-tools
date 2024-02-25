@@ -1,15 +1,7 @@
 import { createLogger, Logger as WinstonLogger, transports } from 'winston';
 import DailyRotateFile from 'winston-daily-rotate-file';
 import { consoleFormat, fileFormat } from '../../utils/formats';
-
-enum LogLevel {
-  DEBUG = 'debug',
-  ERROR = 'error',
-  FATAL = 'fatal',
-  INFO = 'info',
-  TRACE = 'trace',
-  WARN = 'warn',
-}
+import { LogLevel } from '../../utils/levels';
 
 type LogMessage = string;
 
@@ -38,7 +30,7 @@ export default class Logger {
 
   private readonly config?: LoggerConfig;
 
-  private readonly name;
+  private readonly name: string;
 
   private readonly levels = {
     fatal: 0,
@@ -68,6 +60,7 @@ export default class Logger {
   }
 
   private log(message: LogMessage, logLevel: LogLevel, meta?: LogMeta) {
+    console.log(this.config, this.name);
     this.instance.log(logLevel, message, { ...meta });
   }
 
