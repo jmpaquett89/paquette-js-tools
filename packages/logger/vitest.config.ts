@@ -1,11 +1,12 @@
 import { resolve } from 'path';
-import { defineProject, mergeConfig } from 'vitest/config';
+import { defineConfig } from 'vite';
+import { mergeConfig } from 'vitest/config';
 
 import sharedConfig from '../../vitest.shared';
 
 export default mergeConfig(
   sharedConfig,
-  defineProject({
+  defineConfig({
     build: {
       assetsDir: '',
       sourcemap: true,
