@@ -1,4 +1,5 @@
 import { format } from 'winston';
+
 import { getColor } from './color';
 
 type LogInfo = {

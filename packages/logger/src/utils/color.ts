@@ -7,6 +7,7 @@ import {
   whiteBright,
   yellow,
 } from 'colorette';
+
 import { LogLevel } from './levels';
 
 const getColor = (level: string): Color => {

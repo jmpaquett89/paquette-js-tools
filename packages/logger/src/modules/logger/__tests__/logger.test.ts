@@ -1,6 +1,7 @@
-import { it, describe, expect, afterEach, beforeAll } from 'vitest';
-import { createLoggerReturnMock } from './fixtures/winston';
+import { afterEach, beforeAll, describe, expect, it } from 'vitest';
+
 import Logger from '../logger';
+import { createLoggerReturnMock } from './fixtures/winston';
 
 describe('Logger', () => {
   let logger: Logger | null;
