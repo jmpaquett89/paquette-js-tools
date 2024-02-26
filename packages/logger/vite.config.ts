@@ -1,15 +1,16 @@
+import { resolve } from 'path';
 import { defineConfig, mergeConfig } from 'vite';
-import dts from 'vite-plugin-dts';
 
 import sharedConfig from '../../vite.shared';
 
 export default defineConfig(
   mergeConfig(sharedConfig, {
-    plugins: [dts()],
     build: {
-      assetsDir: '',
-      minify: true,
-      sourcemap: true,
+      lib: {
+        entry: resolve(__dirname, 'src/index.ts'),
+        name: 'Logger',
+        fileName: 'index',
+      },
     },
   }),
 );
