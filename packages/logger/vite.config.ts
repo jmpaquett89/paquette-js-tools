@@ -3,9 +3,8 @@ import dts from 'vite-plugin-dts';
 
 import sharedConfig from '../../vite.shared';
 
-export default mergeConfig(
-  sharedConfig,
-  defineConfig({
+export default defineConfig(
+  mergeConfig(sharedConfig, {
     plugins: [dts()],
     build: {
       assetsDir: '',
