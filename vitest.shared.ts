@@ -1,6 +1,9 @@
-import { defineConfig } from "vite";
-import dts from "vite-plugin-dts";
+import { defineConfig, mergeConfig } from "vitest/config";
+import viteConfig from "./vite.shared";
 
-export default defineConfig({
-  plugins: [dts()],
-});
+export default mergeConfig(
+  viteConfig,
+  defineConfig({
+    test: {},
+  })
+);
