@@ -1,3 +1,3 @@
-import { Logger } from 'winston';
+import { Logger as WinstonLogger } from 'winston';
 
-export default interface LoggerInstance extends Logger {}
+export default interface LoggerInstance extends WinstonLogger {}

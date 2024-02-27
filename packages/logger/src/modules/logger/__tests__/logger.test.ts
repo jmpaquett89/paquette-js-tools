@@ -1,7 +1,38 @@
-import { afterEach, beforeAll, describe, expect, it } from 'vitest';
+import { Mock, afterEach, beforeAll, describe, expect, it, vi } from 'vitest';
+import winston from 'winston';
 
 import Logger from '../logger';
-import { createLoggerReturnMock } from './fixtures/winston';
+
+vi.mock('winston', () => {
+  const createLogger = vi.fn().mockReturnValue({ log: vi.fn() });
+  const format = {
+    align: vi.fn(),
+    combine: vi.fn(),
+    printf: vi.fn(),
+    timestamp: vi.fn(),
+  };
+  const transports = {
+    Console: vi.fn(),
+  };
+  const winstonMock = {
+    createLogger,
+    format,
+    transports,
+  };
+
+  return {
+    default: {
+      ...winstonMock,
+    },
+    ...winstonMock,
+  };
+});
+
+const createLoggerMock = {
+  log: vi.fn(),
+};
+
+(winston.createLogger as Mock).mockReturnValue(createLoggerMock);
 
 describe('Logger', () => {
   let logger: Logger | null;
@@ -20,7 +51,7 @@ describe('Logger', () => {
     then I expect the log method to be called
   `, () => {
     logger?.debug('debug method invoked');
-    expect(createLoggerReturnMock.log).toHaveBeenCalled();
+    expect(createLoggerMock.log).toHaveBeenCalled();
   });
 
   it(`
@@ -29,7 +60,7 @@ describe('Logger', () => {
     then I expect the log method to be called
   `, () => {
     logger?.error('error method invoked');
-    expect(createLoggerReturnMock.log).toHaveBeenCalled();
+    expect(createLoggerMock.log).toHaveBeenCalled();
   });
 
   it(`
@@ -38,7 +69,7 @@ describe('Logger', () => {
     then I expect the log method to be called
   `, () => {
     logger?.fatal('fatal method invoked');
-    expect(createLoggerReturnMock.log).toHaveBeenCalled();
+    expect(createLoggerMock.log).toHaveBeenCalled();
   });
 
   it(`
@@ -47,7 +78,7 @@ describe('Logger', () => {
     then I expect the log method to be called
   `, () => {
     logger?.info('info method invoked');
-    expect(createLoggerReturnMock.log).toHaveBeenCalled();
+    expect(createLoggerMock.log).toHaveBeenCalled();
   });
 
   it(`
@@ -56,7 +87,7 @@ describe('Logger', () => {
     then I expect the log method to be called
   `, () => {
     logger?.trace('trace method invoked');
-    expect(createLoggerReturnMock.log).toHaveBeenCalled();
+    expect(createLoggerMock.log).toHaveBeenCalled();
   });
 
   it(`
@@ -65,6 +96,6 @@ describe('Logger', () => {
     then I expect the log method to be called
   `, () => {
     logger?.warn('warn method invoked');
-    expect(createLoggerReturnMock.log).toHaveBeenCalled();
+    expect(createLoggerMock.log).toHaveBeenCalled();
   });
 });
