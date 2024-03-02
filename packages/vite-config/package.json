@@ -1,12 +1,11 @@
 {
   "name": "@paquette/vite-config",
-  "private": true,
   "version": "0.0.0",
   "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview"
+  "exports": {
+    "./base": "./vite.base.config.ts",
+    "./dev": "./vite.dev.config.ts",
+    "./prod": "./vite.prod.config.ts"
   },
   "devDependencies": {
     "typescript": "^5.2.2",
