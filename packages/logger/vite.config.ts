@@ -1,10 +1,9 @@
+import baseConfig from '@paquette/vite-config/base';
 import { resolve } from 'path';
 import { defineConfig, mergeConfig } from 'vite';
 
-import sharedConfig from '../../vite.shared';
-
 export default defineConfig(
-  mergeConfig(sharedConfig, {
+  mergeConfig(baseConfig, {
     build: {
       lib: {
         entry: resolve(__dirname, 'src/index.ts'),

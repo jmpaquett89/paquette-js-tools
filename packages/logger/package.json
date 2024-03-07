@@ -1,5 +1,5 @@
 {
-  "name": "logger",
+  "name": "@paquette/logger",
   "version": "0.0.0",
   "main": "./dist/index.umd.js",
   "module": "./dist/index.mjs",
@@ -19,6 +19,7 @@
     "test": "vitest"
   },
   "devDependencies": {
+    "@paquette/vite-config": "*",
     "@trivago/prettier-plugin-sort-imports": "^4.3.0",
     "@types/node": "^20.11.20",
     "@typescript-eslint/eslint-plugin": "^7.0.2",

@@ -3,10 +3,13 @@
   "version": "0.0.0",
   "type": "module",
   "exports": {
-    "./base": "./vite.base.config.ts",
+    ".": "./vite.base.config.ts",
     "./dev": "./vite.dev.config.ts",
     "./prod": "./vite.prod.config.ts"
   },
+  "files": [
+    "./**.*.config.ts"
+  ],
   "devDependencies": {
     "typescript": "^5.2.2",
     "vite": "^5.1.4",
