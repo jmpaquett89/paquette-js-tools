@@ -4,3 +4,5 @@ node_modules
 *-audit.json
 
 .vscode
+
+dist

@@ -1,6 +1,7 @@
-import baseConfig from '@paquette/vite-config/base';
 import { resolve } from 'path';
 import { defineConfig, mergeConfig } from 'vite';
+
+import baseConfig from '../vite-config/vite.dev.config';
 
 export default defineConfig(
   mergeConfig(baseConfig, {

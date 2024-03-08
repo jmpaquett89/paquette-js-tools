@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "turbo build",
+    "clean": "rm -rf node_modules package-lock.json",
     "format": "turbo format",
     "lint": "turbo lint",
     "lint:fix": "turbo lint:fix",
